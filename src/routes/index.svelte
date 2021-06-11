@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    console.log("Hello world")
+</script>
+<h1>Svelte Kit PokeDex</h1>
+
+<style>
+    h1{
+        color:red;
+    }
+</style>
