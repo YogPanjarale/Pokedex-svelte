@@ -1,3 +1,7 @@
+<svelte:head>
+    <title>About the Svelte Kit PokeDex</title>
+</svelte:head>
+
 <h1>About</h1>
 
 <p>
