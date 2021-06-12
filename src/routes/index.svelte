@@ -1,6 +1,6 @@
 <script>
     import {  pokemon} from "../stores/pokestores";
-    console.log($pokemon)
+    // console.log($pokemon)
 </script>
 <svelte:head>
     <title>Svelte Kit PokeDex</title>
