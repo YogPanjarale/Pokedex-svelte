@@ -1,20 +1,36 @@
-<script>
-	import { pokemons } from '../stores/pokestores';
-	import PokemanCard from '../components/pokemonCard.svelte';
+<script context="module">
+	export async function load({ page }) {
+		const url = `https://pokeapi.co/api/v2/pokemon?limit=150`;
+		const res = await fetch(url);
+		const data = await res.json();
+		const loadedPokemon = data.results.map((data, index) => {
+			return {
+				name: data.name,
+				id: index + 1,
+				image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index+1}.png`
+			};
+		});
+		return { props: { pokemons:loadedPokemon } };
+	}
+</script>
 
+<script>
+	// import { pokemons } from '../stores/pokestores';
+	import PokemanCard from '../components/pokemonCard.svelte';
+	export let pokemons;
 	let searchTerm = '';
 	let filteredPokemons = [];
 	$: {
 		// console.log(searchTerm)
 		if (searchTerm != '') {
 			//search Pokemon
-			filteredPokemons = $pokemons.filter((pokemon) =>
+			filteredPokemons = pokemons.filter((pokemon) =>
 				pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
 			);
 			// console.log(filteredPokemons);
 		} else {
 			//spread making a copy cause cananot ref
-			filteredPokemons = [...$pokemons];
+			filteredPokemons = [...pokemons];
 		}
 	}
 </script>
