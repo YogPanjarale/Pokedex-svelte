@@ -15,7 +15,6 @@
 </script>
 
 <script>
-	// import { pokemons } from '../stores/pokestores';
 	import PokemanCard from '../components/pokemonCard.svelte';
 	export let pokemons;
 	let searchTerm = '';
