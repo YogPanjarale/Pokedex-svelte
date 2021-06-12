@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { writable } from 'svelte/store';
 
-export const pokemon = writable([]);
+export const pokemons = writable([]);
 
 const fetchPokemon = async (limit=150) => {
 
@@ -17,6 +17,6 @@ const fetchPokemon = async (limit=150) => {
 			}.png`
 		};
 	});
-    pokemon.set(loadedPokemon)
+    pokemons.set(loadedPokemon)
 };
 fetchPokemon()
